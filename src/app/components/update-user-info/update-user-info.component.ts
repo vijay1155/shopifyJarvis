@@ -56,7 +56,7 @@ ngOnInit(){
 
    this.onlineMarket.updateUser(this.userDetails).subscribe((a: any) => {
 
-    console.log(a)  
+    
     localStorage.setItem("session",JSON.stringify(userDetailssss))
     
 

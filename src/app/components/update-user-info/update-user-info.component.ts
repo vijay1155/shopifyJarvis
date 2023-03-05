@@ -19,7 +19,7 @@ export class UpdateUserInfoComponent {
 
 ngOnInit(){ 
   var userInfo = JSON.parse(localStorage.getItem("session"))
-  console.log('the name is ', userInfo.name)
+ 
   this.inputName=userInfo.name;
   this.inputAddress =userInfo.address
   this.inputContact = userInfo.contact

@@ -1,0 +1,30 @@
+.card-top{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: #fff;
+    background-clip: border-box;
+    border-radius: .25rem;
+}
+
+.item img{
+    width: 76px;
+    border-radius: 25%;
+}
+
+.item{
+    margin: 0px 15px;
+    text-align: center;
+   }
+
+.item a:hover{
+    color:#6600FF;
+}
+/* 
+https://fakestoreapi.com/products */
+
+.row{
+ display: flex;
+}

@@ -1,0 +1,58 @@
+<app-navbar-buy></app-navbar-buy><br><br><br><br><br>
+
+<div style="display: flex;margin-top: 20px; ">
+<mat-card style="margin-left: auto;margin-right: auto; height: auto;width:70%; border:#6600FF 2px solid;">
+  <mat-card-content style="margin-left: auto;margin-right: auto;width:70%; margin-top:5%;">
+    <div style="display:flex; margin-top: 10px;width:100%">
+      <img src={{products.product_details.imageUrl}} alt={{products.product_details.name}} style="height:50%;margin-bottom:auto;margin-top:auto;width:35%">
+
+     &nbsp;&nbsp;&nbsp;&nbsp;
+      <mat-card style="width:65%; margin-bottom:3%; align-items:center">
+        <mat-card-content style="width:65%">
+          <h3><b>{{products.product_details.name}}</b></h3>
+          <p><b>Category:</b> {{products.product_details.category}}</p>
+          <p>{{products.product_details.description}}</p>
+          <p><b>{{products.product_details.price}} (&#8377;) </b></p>
+          
+          
+          
+          <div class="quantity" style="display: flex; align-items: center;">
+            <span style="margin-right: 10px;">Quantity:</span>
+              <input type="number" [(ngModel)]="purchasequantity" name="quantity"  min="1" placeholder="1">
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </mat-card-content>
+  <div style="display: flex; margin-left:auto; margin-right:auto; margin-bottom:3%">
+
+    <button (click)="purches(purchasequantity)" mat-button style="background-color: #6600FF;height:relative;  color:white;">
+      BUY NOW
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button (click)="addToCart();" mat-button style="background-color: #6600FF;height: relative; color: white;">
+      ADD TO CART
+    </button>
+
+
+  </div>
+</mat-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- for showing alert -->
+
+<app-message-modal *ngIf= "showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal> 
+
+
+
+

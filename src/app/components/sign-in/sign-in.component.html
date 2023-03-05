@@ -1,0 +1,64 @@
+<app-navbar-home></app-navbar-home>
+<div class="container" *ngIf="user" style="margin-left: auto;margin-right: auto;">
+    <div class="row">
+
+    <div class="row w-100 vh-100 justify-content-center align-items-center">
+
+        <div class="auth-box">
+
+            <!-- sign up -->
+
+            <div *ngIf="!isForgotPassword">
+
+                <div class="header">
+
+                    <h2>LogIn</h2>
+
+                    <h4>LogIn Your account using below information</h4>
+
+                </div>
+
+                <div class="form">
+                    <input type="email" name="email" [(ngModel)]="user.u_email" placeholder="Email Address"autocomplete="off">
+                    <input type="password" name="password" [(ngModel)]="user.u_password" placeholder="Password" >
+
+                    <p class="forgot-password" (click)="forgotPasswordClicked()"> Forgot password? </p>
+                    <p>Not a member? <a href="/sign-up">Register</a></p>
+                    <button (click)="signInWithCognito()">Login</button>
+                
+                </div>
+
+            </div>
+
+
+            <!-- forgot password -->
+
+            <div *ngIf="isForgotPassword">
+
+                <div class="header">
+
+                    <h2>Account recovery</h2>
+
+                    <h4>Verification code sent to <strong>{{user.u_email}}</strong> </h4>
+
+                </div>
+
+                <div class="form">
+
+                    <input type="text" name="verificationCode" placeholder="Enter verification code"
+                        [(ngModel)]="user.u_verfication_code"> 
+
+                        <input type="password" name="password" [(ngModel)]="newPassword" placeholder="Enter New Password">    
+            
+                        <button (click)="newPasswordSubmit()">SUBMIT NEW PASSWORD</button>
+                </div>
+            </div>
+       </div>
+       
+    </div>   
+
+</div>
+</div>
+<!-- for showing alert -->
+<app-message-modal *ngIf= "showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>
+

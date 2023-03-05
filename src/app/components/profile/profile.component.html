@@ -1,0 +1,61 @@
+
+<app-navbar-profile [cartCount]="cartP"></app-navbar-profile><br><br><br><br><br><br>
+<!-- <div *ngFor="let dict of products | keyvalue">
+    <h3>{{ dict.key }}</h3>
+    <ul>
+      <li *ngFor="let item of dict.value | keyvalue">
+        {{ item.key }}: {{ item.value }}
+      </li> 
+      <li (click)="deleteCart(dict.key)" *ngIf="proFile== 3">delete</li>
+    </ul>
+  </div> -->
+  <div  > 
+    <div *ngIf="proFile==1 "> 
+      <h2  style="font-size: 30px;text-align: center;"> <b> Purchase Details</b>  </h2>
+  
+    </div>
+    <div *ngIf="proFile==2 "> 
+      <h2 style="font-size: 30px;text-align: center;">  <b>Sell Details</b>  </h2>
+  
+    </div>
+    <div *ngIf="proFile==3"> 
+      <h2 style="font-size: 30px;text-align: center;"> <b>Cart Details</b>   </h2>
+  
+    </div>
+
+  </div>
+  
+  <div *ngIf="productLength<1"  > 
+   
+    <img style=" display:flex;margin-right:auto; margin-left: auto; "src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png" alt="">
+  </div>
+  <div *ngIf="productLength>=1">
+  <div class="row">
+    <div class="col" *ngFor="let i of product">
+      <div class="cover">
+      <div class="card" style=" height:450px">
+        <div style="background-color: white; display:flex; border:#6600FF; border-radius: 10px;"><img src="https://productshopyfy.s3.ap-south-1.amazonaws.com/{{i.key}}.jpeg"alt="{{i.value.name }}" style="height:150px;margin-left:auto; margin-right:auto"></div>
+        <div style="height:220px">
+        <h2>{{ i.value.name }}</h2>
+        <p>Category: {{i.value.category}}</p>
+         <p *ngIf="proFile==3 || proFile==2" >{{ product.description }}</p> 
+        <p>Price: {{ i.value.price }}</p> 
+
+        <p  *ngIf="proFile!=3" >Quantity: {{ i.value.quantity }}</p>
+        
+        </div >  
+       
+        
+        <button (click)="getPurchesDetails(i.value.sellerEmail,i.key,i.value.name,i.value.description,i.value.price,i.value.imageUrl,i.value.category)" *ngIf="proFile==3" routerLink="" mat-raised-button style="background-color:#6600FF;color: white;">Buy</button>&nbsp; &nbsp;
+        <button *ngIf="proFile==3  " (click)="deleteCart(i.key);" mat-raised-button style="background-color:#6600FF;color: white;">Delete</button>
+        <button *ngIf="proFile==2  " (click)="deleteSellHistory(i.key)" mat-raised-button style="background-color:#6600FF;color: white;">Delete</button>
+      </div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+
+
+
+<app-message-modal *ngIf= "showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal> 

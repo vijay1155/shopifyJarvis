@@ -1,0 +1,77 @@
+<app-navbar-home></app-navbar-home><br><br><br><br><br>
+
+<style>
+        
+    </style>
+<div class="container" *ngIf="user" style="margin-left: auto;margin-right: auto;">
+
+    <div class="row w-100 vh-100 justify-content-center align-items-center">
+
+        <div class="auth-box">
+
+            <!-- sign up -->
+
+            <div *ngIf="! isConfirm">
+
+                <div class="header">
+
+                    <h2>Register</h2>
+
+                    <h4>Register Your account using below information</h4>
+
+                </div>
+
+                <div class="form">
+
+                    <input type="text" name="name" [(ngModel)]="user.u_name" placeholder="Name">
+                    <input type="number" name="contact" [(ngModel)]="user.u_contact" placeholder="Contact">
+                    <input type="email" name="email" [(ngModel)]="user.u_email" placeholder="Email Address"
+                        autocomplete="off"> 
+                       
+                    <input type="text" name="address" [(ngModel)]="user.u_address" placeholder="Address">
+                    <input type="text" name="pincode" [(ngModel)]="user.u_pincode" placeholder="Pincode">
+
+                    <input type="password" name="password" [(ngModel)]="user.u_password" placeholder="Password">
+                    <!-- <input [type]="user.showPassword ? 'text': 'password"" name="password" placeholder="Password" (ngModel)]="user.u_password" > -->
+                    <label>Do you want sell product?</label>
+                    <div>
+                        <input type="radio" class="radio" name="isOver18" value="yes"[(ngModel)]="user.u_isSeller" > Yes
+                        <input type="radio" class="radio"  name="isOver18" value="no" [(ngModel)]="user.u_isSeller"> No
+                    </div>
+               
+
+
+                <p>Already a member? <a href="/sign-in">Log In</a></p>
+
+                <button (click)="signUpWithCognito()">REGISTER</button>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- <!confirm sign up →→→ -->
+
+        <div *ngIf="isConfirm">
+
+            <div class="header">
+
+                <h2>Enter Code</h2>
+
+                <h4 style="color:green;">A verification Code Sent to {{user.u_email}}</h4>
+
+            </div>
+
+            <div class="form">
+
+                <input type="text" name="verificationCode" placeholder="Enter verification code"
+                    [(ngModel)]="user.u_verfication_code"> <button (click)="confirmSignUp()">CONFIRM</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- for showing alert -->
+<app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>

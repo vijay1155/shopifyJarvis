@@ -1,0 +1,57 @@
+<div style="margin-bottom: 80px;"><app-navbar-buy></app-navbar-buy></div>
+<!-- <br><br><br><br><br><br><br><br> -->
+<div><app-search-bar (serachTextChanged)="onSearchTextEntered($event)"></app-search-bar> </div>
+<div>
+  <br><app-productss></app-productss>
+</div> 
+
+
+         
+<div class="row">
+  <div class="col" *ngFor="let product of filteredProducts">
+    <div class="cover">
+      
+      
+    <div class="card"   style=" height:450px">
+      <div style="background-color: white; display:flex; border:#6600FF; border-radius: 10px;"><img src={{product.imageUrl}} alt="{{ product.name }}" style="height:150px;margin-left:auto; margin-right:auto"></div>
+      <div style="height:240px"><br>
+      <h2>{{ product.name }}</h2>
+      <p>Category: {{product.category}}</p>
+      <!-- <p>{{ product.description }}</p> -->
+      <p>Price: {{ product.price }}</p>
+      <p>Quantity: {{ product.quantity }}</p>
+      </div>
+      <button  (click)="getPurchesDetails(product.sellerEmail,product.product_id,product.name,product.description,product.price,product.imageUrl,product.quantity,product.category)" mat-raised-button style="background-color:#6600FF;color: white;">BUY</button>
+    </div> 
+    <!-- //////////////////////////////////////////// --> 
+    
+  </div>
+  </div>
+</div>  
+
+
+
+<!-- categorywise --> 
+<!-- <div *ngIf="category1== 'beauty'  ">
+<div class="row">
+  <div class="col" *ngFor="let product of filteredProductsWithCategory">
+    <div class="cover"> -->
+      
+      
+    <!-- <div class="card"   style=" height:450px">
+      <div style="background-color: white; display:flex; border:#6600FF; border-radius: 10px;"><img src={{product.imageUrl}} alt="{{ product.name }}" style="height:150px;margin-left:auto; margin-right:auto"></div>
+      <div style="height:220px">
+      <h2>{{ product.name }}</h2>
+      <p>Category: {{product.category}}</p> -->
+      <!-- <p>{{ product.description }}</p> -->
+      <!-- <p>Price: {{ product.price }}</p>
+      <p>Quantity: {{ product.quantity }}</p>
+      </div>
+      <button  (click)="getPurchesDetails(product.sellerEmail,product.product_id,product.name,product.description,product.price,product.imageUrl,product.quantity,product.category)" mat-raised-button style="background-color:#6600FF;color: white;">BUY</button>
+    </div> 
+   
+    
+  </div>
+  </div>
+</div>  
+</div> -->

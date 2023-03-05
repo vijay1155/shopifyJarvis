@@ -1,0 +1,37 @@
+<app-navbar-sell></app-navbar-sell>
+<div style="padding-top: 7%">
+<div class="sell-page-container">
+    <h2>Sell your product</h2>
+    <form>
+      <label for="product-name">Product name:</label>
+      <input type="text" id="name" name="product-name" [(ngModel)]="product.name" required>
+      <label for="product-quantity">Product quantity:</label>
+      <input type="number" id="quantity" name="product-quantity" min="1" [(ngModel)]="product.quantity" required>
+      <label for="product-price">Product price (&#8377;):</label>
+      <input type="number" id="price" name="product-price" min="1" step="1" [(ngModel)]="product.price" required>
+      <label for="product-category">Product category:</label>
+      <select id="category" name="product-category" [(ngModel)]="product.category" required>
+        <option value="">Select a category</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+        <option value="home-garden">Home &amp; Garden</option>
+        <option value="sports-outdoors">Sports &amp; Outdoors</option>
+        <option value="beauty">Beauty</option>
+      </select>
+      <label for="product-description">Product description:</label>
+      <textarea id="productdDescription" name="product-description" rows="5" [(ngModel)]="product.productDescription" required></textarea>
+      <label for="productImage">Product Image:</label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="productImage" (change)=" onImageSelection($event)">
+          <label class="custom-file-label" for="productImage">Choose file</label>
+        </div>
+      </div>
+  <div *ngIf="previewUrl">
+    <img [src]="previewUrl" class="img-thumbnail" alt="Product Image">
+  </div>
+  <button type="submit" (click)="postProductForSell()">Post product</button>
+    </form>
+  </div>
+</div>
+<app-message-modal *ngIf= "showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>

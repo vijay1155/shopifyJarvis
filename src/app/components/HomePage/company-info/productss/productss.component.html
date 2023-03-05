@@ -1,0 +1,12 @@
+<div class="card-top container-fluid">
+    <div class="container d-flex row">
+        <div class="item" *ngFor="let i of categories">
+            <a (click)="getCategory(i.name)">
+                <img  src={{i.image}} alt={{i.name}}>
+                <h4 style="text-transform: capitalize;">{{i.name}}</h4>
+            </a>
+        </div>
+        
+    </div>
+</div>
+

@@ -1,0 +1,39 @@
+<app-navbar-home></app-navbar-home><br><br><br><br><br>
+<div class="container" style="margin-left: auto;margin-right: auto;">
+
+    <div class="row w-100 vh-100 justify-content-center align-items-center">
+
+        <div class="auth-box">
+
+            <!-- sign up -->
+
+            <div>
+
+                <div class="header">
+
+                    <h2>Update</h2>
+
+                    <h4>Upadate Your account using below information</h4>
+
+                </div>
+
+                <div class="form">
+
+                    <input type="text" name="name" [(ngModel)]="inputName" placeholder="user" >
+                    <input type="text" name="contact" [(ngModel)]="inputContact" placeholder="Contact" >
+                    <input type="email" name="email" [(ngModel)]="inputEmail" placeholder="Email Address"autocomplete="off" [disabled]=true>
+                    <input type="text" name="address" [(ngModel)]="inputAddress" placeholder="Address"> 
+            
+                    <!-- <input [type]="user.showPassword ? 'text': 'password"" name="password" placeholder="Password" (ngModel)]="user.u_password" > -->
+
+                    <button (click)="updateUserinfo()">Update</button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- for showing alert -->
+<app-message-modal *ngIf= "showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>

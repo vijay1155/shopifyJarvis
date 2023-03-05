@@ -1,0 +1,41 @@
+.row {
+    margin: 1% auto;
+  
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    
+      clear: left;
+    
+    
+  }
+.col { 
+    width: 20%;
+    padding: 0 15px;
+    clear: right;
+  }
+  
+  .card {
+    padding: 15px;
+    margin-bottom: 30px;
+    text-align: left;
+    
+  }
+  
+  .card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+   
+  
+  }
+  .cover{
+    background-color: #e4d3fe;
+    z-index: 15;
+    /* border: 1px solid #6600FF; */
+    margin-bottom: 10%;
+  }
+  .cover:hover{
+    background-color: rgba(179, 176, 182, 0.867);
+    z-index: 16;
+  }

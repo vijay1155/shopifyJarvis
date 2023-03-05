@@ -1,0 +1,31 @@
+<head>
+    <!--ICONSOUT CDN-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+<nav>
+    <div class="container nav__container">
+        <a ><h2 style="color:white; ">SHOPIFY</h2></a>  <ul class="nav__menu" style="padding: 0 2.5% 0 2.5%;">
+            <li><a routerLink="/home" >Home</a></li>
+            <li><a routerLink="/product" >Buy</a></li>
+            <li *ngIf="isSeller== 'yes'" ><a routerLink="/sell" >Sell</a></li> 
+            <li *ngIf="emailId== 'x'  "></li>
+
+            <li *ngIf="isSeller !='x'" [matMenuTriggerFor]="menu" style="color: white;text-transform: capitalize;" >{{name}}</li>
+            <mat-menu #menu="matMenu" style="padding: 3%;">
+   
+              <button (click)="getPurchaseHistory()" routerLink="/profile" mat-menu-item><mat-icon>shop</mat-icon>Purchase Details</button>
+              <button *ngIf="isSeller== 'yes'" (click)="getSellHistory()" routerLink="/profile" mat-menu-item><mat-icon>shopping_basket</mat-icon>Sell Details</button>
+             
+   
+            </mat-menu> 
+            <li><a (click)="getCartU()" routerLink="/profile" ><span class="cart-count">{{ cartCount }}</span><mat-icon>shopping_cart</mat-icon></a></li>
+            <li><a (click)="logOut()" routerLink="/home" >Logout</a></li>
+        </ul>
+        
+        <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+        <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>      
+    </div>
+</nav>
+
+</body>

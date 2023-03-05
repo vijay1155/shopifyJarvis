@@ -1,0 +1,23 @@
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    }
+    
+    div.gallery:hover {
+    border: 1px solid rgb(102, 27, 172);
+    z-index:5;
+    background-color: rgb(102, 27, 172);
+    color:white;
+    }
+    
+    div.gallery img {
+    width: 100%;
+    height: auto;
+    }
+    
+    
+    div.desc {
+    padding: 15px;
+    text-align: center;
+    }
